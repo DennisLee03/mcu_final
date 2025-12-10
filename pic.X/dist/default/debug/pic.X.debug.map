@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v3.00\pic\dat\20241204225717_en.msgs \
   -cn -h+dist/default/debug\pic.X.debug.sym \
   --cmf=dist/default/debug\pic.X.debug.cmf -z -Q18F4520 \
-  -oC:\Users\dennis\AppData\Local\Temp\xcAs814.\driver_tmp_3.o \
+  -oC:\Users\dennis\AppData\Local\Temp\xcAsnuk.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/debug/pic.X.debug.map \
-  --md=C:\Users\dennis\AppData\Local\Temp\xcAs814.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\dennis\AppData\Local\Temp\xcAsnuk.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-07DBFh -ACONST=00h-07DBFh \
   -ASMALLCONST=0600h-06FFhx119,07D00h-07DBFh -AMEDIUMCONST=0600h-07DBFh \
   -ACOMRAM=01h-07Fh -AABS1=00h-05F3h -ABIGRAM=01h-05F3h \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\dennis\AppData\Local\Temp\xcAs814.\driver_tmp_14.o \
+  C:\Users\dennis\AppData\Local\Temp\xcAsnuk.\driver_tmp_14.o \
   dist/default/debug\pic.X.debug.o 
 
 Object code version is 3.11
@@ -37,7 +37,7 @@ Machine type is 18F4520
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\dennis\AppData\Local\Temp\xcAs814.\driver_tmp_14.o
+C:\Users\dennis\AppData\Local\Temp\xcAsnuk.\driver_tmp_14.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  E        E        4        4       0

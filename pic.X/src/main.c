@@ -71,20 +71,27 @@
 char str[20];
 
 /**
+ * heart-rate  -> 0
+ * breath-test -> 1
+ */
+unsigned char state = 0;
+
+/**
  * when btn pressed, measure the alcohol value once and print on session
  */
 void __interrupt(high_priority)  Hi_ISR(void) {
     
     __delay_ms(250);
     
+    // toggle states
+    state ^= 1;
+    
     // flag bit check
     if(INT0IF != 1){
         return;
     }
     
-    int adc = ADC_Read();
-    sprintf(str, "\r%4u", adc);
-    UART_Write_Text(str);
+    // toggle states={breath-test, heart-rate}
     
     // flag bit clear
     INT0IF = 0;
@@ -106,11 +113,17 @@ void main() {
     (void)RCREG;
     RCIF = 0;
     INTCONbits.INT0E = 1;
-    UART_Write_Text("System started\n");
+    UART_Write_Text("System started\r\n");
     // =================================
     
     while(1) {
-        // @todo heart rate measurement
+        if(state) {
+            // @todo breath-test calculation
+            int adc = ADC_Read();
+        } else {
+            // @todo heart-rate using SPI
+            
+        }
     }
     
     return;
