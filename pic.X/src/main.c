@@ -77,7 +77,18 @@ char str[20];
 unsigned char state = 0;
 
 /**
- * when btn pressed, measure the alcohol value once and print on session
+ * @brief Send alcohol ADC value
+ */
+void breath_test() {
+    int adc = ADC_Read();
+    sprintf(str, "%u\n", adc);
+    UART_Write_Text(str);
+    __delay_ms(1000);
+    return;
+}
+
+/**
+ * @brief when btn pressed, toggle between breath-test and heart-rate modes
  */
 void __interrupt(high_priority)  Hi_ISR(void) {
     
@@ -116,14 +127,11 @@ void main() {
     
     while(1) {
         if(state) {
-            // @todo breath-test calculation
-            int adc = ADC_Read();
-            sprintf(str, "%4u\n", adc);
-            UART_Write_Text(str);
-            __delay_ms(1000);
+            breath_test();
         } else {
-            // @todo heart-rate using SPI
-            
+            // @todo heart-rate using I2C
+            UART_Write_Text("878\n");
+            __delay_ms(1000);
         }
     }
     
