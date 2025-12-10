@@ -18,5 +18,4 @@ void INT0_init() {
     TRISBbits.RB0 = 1;       // RB0/INT0 as input pin
     INTCONbits.INT0F = 0;    // flag=0
     INTCONbits.INT0E = 1;    // enable INT0 
-    INTCON2bits.INTEDG0 = 1; // leading edge
 }

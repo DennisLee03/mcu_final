@@ -82,16 +82,14 @@ unsigned char state = 0;
 void __interrupt(high_priority)  Hi_ISR(void) {
     
     __delay_ms(250);
-    
-    // toggle states
-    state ^= 1;
-    
+
     // flag bit check
     if(INT0IF != 1){
         return;
     }
     
     // toggle states={breath-test, heart-rate}
+    state ^= 1;
     
     // flag bit clear
     INT0IF = 0;
@@ -108,18 +106,21 @@ void main() {
     UART_Initialize();
     
     // =========== FOR DEBUG ===========
-    INTCONbits.INT0E = 0;
-    while(!RCIF);
-    (void)RCREG;
-    RCIF = 0;
-    INTCONbits.INT0E = 1;
-    UART_Write_Text("System started\r\n");
+    //INTCONbits.INT0E = 0;
+    //while(!RCIF);
+    //(void)RCREG;
+    //RCIF = 0;
+    //INTCONbits.INT0E = 1;
+    //UART_Write_Text("System started\r\n");
     // =================================
     
     while(1) {
         if(state) {
             // @todo breath-test calculation
             int adc = ADC_Read();
+            sprintf(str, "%4u\n", adc);
+            UART_Write_Text(str);
+            __delay_ms(1000);
         } else {
             // @todo heart-rate using SPI
             

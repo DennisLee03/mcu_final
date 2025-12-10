@@ -21,9 +21,9 @@ void ADC_config() {
  * @brief Configure the ADC interrupt
  */
 void ADC_int_config() {
-    PIE1bits.ADIE = 1;
+    PIE1bits.ADIE = 0;
     PIR1bits.ADIF = 0;
-    IPR1bits.ADIP = 1;
+    IPR1bits.ADIP = 0;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
     return;
