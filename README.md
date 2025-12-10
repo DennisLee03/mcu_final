@@ -19,6 +19,12 @@
 * If there is "**Target Device ID (0x0) is an Invalid Device ID. Please check your connections to the Target Device.**" when compiling:
     1. Your breadboard is probably broken!
     2. Check that the pic18’s pins are fully inserted.
+* In `mcu_final/esp32/src/main.cpp`, change below when in different WiFi environments. Then re-burn the program to the esp32.
+    ```
+    const char* SSID  = "dennis-laptop";   // @TODO: WiFi's name
+    const char* PASS  = "32170928";        // @TODO: WiFi's password
+    const char* PC_IP = "192.168.137.1";   // @TODO: PC's IPv4
+    ```
 
 ## PIC18's Config
 1. $$F_{OSC}$$ = 1 MHz
