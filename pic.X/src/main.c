@@ -65,6 +65,7 @@
 #include "adc.h"
 #include "uart.h"
 #include "int.h"
+#include "i2c_master.h"
 
 #define _XTAL_FREQ 1000000
 
@@ -116,6 +117,10 @@ void main() {
     ADC_config();
     ADC_int_config();
     UART_Initialize();
+    
+    // ========== I2C ==========
+    I2C_init();
+    // =========================
     
     // =========== FOR DEBUG ===========
     //INTCONbits.INT0E = 0;
