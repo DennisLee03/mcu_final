@@ -29,7 +29,7 @@
 ## PIC18's Config
 1. $$F_{OSC}$$ = 1 MHz
     * It is possible that if we try to integrate I2C into our project, we may adjust our $$F_{OSC}$$.
-    * Therefore, some modules's config need changing
+    * Therefore, some modules' config need changing
         1. ADC: $$T_{AD}$$, $$T_{ACQT}$$
         2. UART: `SYNC`, `BRG16`, `BRGH`, `SPBRGH:SPBRG`
 3. baud_rate = 1200 bps

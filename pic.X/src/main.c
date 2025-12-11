@@ -78,6 +78,7 @@ unsigned char state = 0;
 
 /**
  * @brief Send alcohol ADC value
+ * @todo measurement period
  */
 void breath_test() {
     int adc = ADC_Read();
@@ -125,6 +126,9 @@ void main() {
     //UART_Write_Text("System started\r\n");
     // =================================
     
+    /**
+     * @note before any uart_write, the array of bytes must end with '\n'.
+     */
     while(1) {
         if(state) {
             breath_test();
