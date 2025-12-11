@@ -6,7 +6,7 @@
 * `pic.X`: pic18f4520's code.
 
 ## Hardware Components
-1. `PIC18F4520`: contorller of MQ-3 and MAX30102
+1. `PIC18F4520`: controller of MQ-3 and MAX30102
 2. `ESP32 DevKit V1`: WiFi module
 3. `MQ-3`: measure alcohol
 4. `MAX30102`: measure heart rate
@@ -28,7 +28,7 @@
 
 ## PIC18's Config
 1. $$F_{OSC}$$ = 1 MHz
-    * It is possible that if we try to integrate I2C into our project, we may adjust ouut $$F_{OSC}$$.
+    * It is possible that if we try to integrate I2C into our project, we may adjust our $$F_{OSC}$$.
     * Therefore, some modules's config need changing
         1. ADC: $$T_{AD}$$, $$T_{ACQT}$$
         2. UART: `SYNC`, `BRG16`, `BRGH`, `SPBRGH:SPBRG`
