@@ -118,19 +118,6 @@ void main() {
     ADC_int_config();
     UART_Initialize();
     
-    // ========== I2C ==========
-    I2C_init();
-    // =========================
-    
-    // =========== FOR DEBUG ===========
-    //INTCONbits.INT0E = 0;
-    //while(!RCIF);
-    //(void)RCREG;
-    //RCIF = 0;
-    //INTCONbits.INT0E = 1;
-    //UART_Write_Text("System started\r\n");
-    // =================================
-    
     /**
      * @note before any uart_write, the array of bytes must end with '\n'.
      */

@@ -58,7 +58,8 @@ uint8_t I2C_read(uint8_t ack) {
     SSPCON2bits.RCEN = 1;
     while(!SSPSTATbits.BF); // wait for SSPBUF full
     received = SSPBUF;
-    SSPCON2bits.ACKEN = ack;
+    SSPCON2bits.ACKDT = ack;
+    SSPCON2bits.ACKEN = 1;
     return received;
 }
 

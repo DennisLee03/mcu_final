@@ -3,9 +3,9 @@
 #include <WiFi.h>
 
 
-const char* SSID  = "dennis-laptop";   // @TODO: WiFi's name
-const char* PASS  = "32170928";        // @TODO: WiFi's password
-const char* PC_IP = "192.168.137.1";   // @TODO: PC's IPv4
+const char* SSID  = "我叫小phone今年九歲";   // @TODO: WiFi's name
+const char* PASS  = "welcome home.";         // @TODO: WiFi's password
+const char* PC_IP = "10.26.16.128";       // @TODO: PC's IPv4
 
 const uint16_t PC_PORT = 5000;          // PC listener's port
 WiFiClient client;
