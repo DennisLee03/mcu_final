@@ -25,8 +25,8 @@ void UART_Initialize() {
     //  ========== Setting baud rate ==========
     TXSTAbits.SYNC = 0;         // async
     BAUDCONbits.BRG16 = 0;      // 8-bit     
-    TXSTAbits.BRGH = 0;
-    SPBRG = 12;                 // see table to set SPBRGH:SPBRG
+    TXSTAbits.BRGH = 1;
+    SPBRG = 51;                 // see table to set SPBRGH:SPBRG
     // ========================================
     
     

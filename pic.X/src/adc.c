@@ -9,9 +9,9 @@ void ADC_config() {
     ADCON1bits.VCFG1 = 0;
     ADCON1bits.PCFG = 0b1110;   // AN0 as input port
     ADCON0bits.CHS = 0b000;     // AN0 as analog channel
-    ADCON2bits.ADCS = 0b000;    // Tosc = 1 us > 0.7 us, therefore select Tad =  2*Tosc
-    ADCON2bits.ACQT = 0b001;    // Tacqt = 4 us > 2.4 us
-    ADCON2bits.ADFM = 1;        // left-justified(8-bit), read ADRESH
+    ADCON2bits.ADCS = 0b001;    // Tosc = 0.125 us <  0.7 us, therefore select Tad =  8*Tosc
+    ADCON2bits.ACQT = 0b010;    // Tacqt = 4 us > 2.4 us
+    ADCON2bits.ADFM = 1;        // right-justified(10-bit), read ADRESH
     ADCON0bits.ADON = 1;        // turn it on
     
     return;

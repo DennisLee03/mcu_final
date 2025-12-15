@@ -67,7 +67,7 @@
 #include "int.h"
 #include "i2c_master.h"
 
-#define _XTAL_FREQ 1000000
+#define _XTAL_FREQ 8000000
 
 char str[20];
 
@@ -83,7 +83,7 @@ unsigned char state = 0;
  */
 void breath_test() {
     int adc = ADC_Read();
-    sprintf(str, "%u\n", adc);
+    sprintf(str, "ADC=%u\n", adc);
     UART_Write_Text(str);
     __delay_ms(1000);
     return;
@@ -110,7 +110,7 @@ void __interrupt(high_priority)  Hi_ISR(void) {
 }
 
 void main() {
-    OSCCONbits.IRCF = 0b100; // 1 MHz
+    OSCCONbits.IRCF = 0b111; // 8 MHz
     
     INTERRUPT_Initialize();
     INT0_init();
@@ -126,7 +126,7 @@ void main() {
             breath_test();
         } else {
             // @todo heart-rate using I2C
-            UART_Write_Text("878\n");
+            UART_Write_Text("IR=878\n");
             __delay_ms(1000);
         }
     }
