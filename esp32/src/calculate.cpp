@@ -19,7 +19,7 @@ float temperature;
 float beatsPerMinute;
 int beatAvg;
 long irValue;
-String calc_rmssd(uint32_t data) {
+void calc_rmssd(uint32_t data) {
   irValue = data;   // infrared light intensity
   if (irValue < 4000) {
       beatsPerMinute = 0;
@@ -86,18 +86,4 @@ String calc_rmssd(uint32_t data) {
 
 
   }
-
-  String result;
-  result += "IR=";
-  result += irValue;
-  result += ", BPM=";
-  result += beatsPerMinute;
-  result += ", Avg BPM=";
-  result += beatAvg;
-  result += ", rMSSD=";
-  result += rmssd;
-
-  Serial.println(result);
-
-  return result;
 }

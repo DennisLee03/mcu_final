@@ -5,6 +5,6 @@
 extern float rmssd;
 extern int beatAvg;
 
-String calc_rmssd(uint32_t data);
+void calc_rmssd(uint32_t data);
 
 #endif

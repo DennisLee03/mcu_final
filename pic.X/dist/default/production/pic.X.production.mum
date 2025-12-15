@@ -1,7 +1,7 @@
 
 18F4520 Memory Summary:
-    Program space        used   5A6h (  1446) of  8000h bytes   (  4.4%)
-    Data space           used    68h (   104) of   600h bytes   (  6.8%)
+    Program space        used   ED8h (  3800) of  8000h bytes   ( 11.6%)
+    Data space           used    D2h (   210) of   600h bytes   ( 13.7%)
     Configuration bits   used     7h (     7) of     7h words   (100.0%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     ID Location space    used     8h (     8) of     8h bytes   (100.0%)

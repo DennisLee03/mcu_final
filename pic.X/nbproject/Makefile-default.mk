@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/adc.c src/main.c src/uart.c src/int.c src/i2c_master.c src/pic_max30102.c
+SOURCEFILES_QUOTED_IF_SPACED=src/adc.c src/main.c src/uart.c src/button.c src/config_bits.c src/i2c.c src/max30102.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/adc.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/uart.p1 ${OBJECTDIR}/src/int.p1 ${OBJECTDIR}/src/i2c_master.p1 ${OBJECTDIR}/src/pic_max30102.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/adc.p1.d ${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/uart.p1.d ${OBJECTDIR}/src/int.p1.d ${OBJECTDIR}/src/i2c_master.p1.d ${OBJECTDIR}/src/pic_max30102.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/adc.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/uart.p1 ${OBJECTDIR}/src/button.p1 ${OBJECTDIR}/src/config_bits.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/max30102.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/adc.p1.d ${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/uart.p1.d ${OBJECTDIR}/src/button.p1.d ${OBJECTDIR}/src/config_bits.p1.d ${OBJECTDIR}/src/i2c.p1.d ${OBJECTDIR}/src/max30102.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/adc.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/uart.p1 ${OBJECTDIR}/src/int.p1 ${OBJECTDIR}/src/i2c_master.p1 ${OBJECTDIR}/src/pic_max30102.p1
+OBJECTFILES=${OBJECTDIR}/src/adc.p1 ${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/uart.p1 ${OBJECTDIR}/src/button.p1 ${OBJECTDIR}/src/config_bits.p1 ${OBJECTDIR}/src/i2c.p1 ${OBJECTDIR}/src/max30102.p1
 
 # Source Files
-SOURCEFILES=src/adc.c src/main.c src/uart.c src/int.c src/i2c_master.c src/pic_max30102.c
+SOURCEFILES=src/adc.c src/main.c src/uart.c src/button.c src/config_bits.c src/i2c.c src/max30102.c
 
 
 CFLAGS=
@@ -117,29 +117,37 @@ ${OBJECTDIR}/src/uart.p1: src/uart.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/src/uart.d ${OBJECTDIR}/src/uart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/int.p1: src/int.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/src/button.p1: src/button.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/int.p1.d 
-	@${RM} ${OBJECTDIR}/src/int.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/int.p1 src/int.c 
-	@-${MV} ${OBJECTDIR}/src/int.d ${OBJECTDIR}/src/int.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/int.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/src/button.p1.d 
+	@${RM} ${OBJECTDIR}/src/button.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/button.p1 src/button.c 
+	@-${MV} ${OBJECTDIR}/src/button.d ${OBJECTDIR}/src/button.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/button.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/i2c_master.p1: src/i2c_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/src/config_bits.p1: src/config_bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/i2c_master.p1.d 
-	@${RM} ${OBJECTDIR}/src/i2c_master.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/i2c_master.p1 src/i2c_master.c 
-	@-${MV} ${OBJECTDIR}/src/i2c_master.d ${OBJECTDIR}/src/i2c_master.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/i2c_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/src/config_bits.p1.d 
+	@${RM} ${OBJECTDIR}/src/config_bits.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/config_bits.p1 src/config_bits.c 
+	@-${MV} ${OBJECTDIR}/src/config_bits.d ${OBJECTDIR}/src/config_bits.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/config_bits.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/pic_max30102.p1: src/pic_max30102.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/src/i2c.p1: src/i2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/pic_max30102.p1.d 
-	@${RM} ${OBJECTDIR}/src/pic_max30102.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/pic_max30102.p1 src/pic_max30102.c 
-	@-${MV} ${OBJECTDIR}/src/pic_max30102.d ${OBJECTDIR}/src/pic_max30102.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/pic_max30102.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/src/i2c.p1.d 
+	@${RM} ${OBJECTDIR}/src/i2c.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/i2c.p1 src/i2c.c 
+	@-${MV} ${OBJECTDIR}/src/i2c.d ${OBJECTDIR}/src/i2c.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/src/max30102.p1: src/max30102.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/max30102.p1.d 
+	@${RM} ${OBJECTDIR}/src/max30102.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/max30102.p1 src/max30102.c 
+	@-${MV} ${OBJECTDIR}/src/max30102.d ${OBJECTDIR}/src/max30102.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/max30102.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/src/adc.p1: src/adc.c  nbproject/Makefile-${CND_CONF}.mk
@@ -166,29 +174,37 @@ ${OBJECTDIR}/src/uart.p1: src/uart.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/src/uart.d ${OBJECTDIR}/src/uart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/int.p1: src/int.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/src/button.p1: src/button.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/int.p1.d 
-	@${RM} ${OBJECTDIR}/src/int.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/int.p1 src/int.c 
-	@-${MV} ${OBJECTDIR}/src/int.d ${OBJECTDIR}/src/int.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/int.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/src/button.p1.d 
+	@${RM} ${OBJECTDIR}/src/button.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/button.p1 src/button.c 
+	@-${MV} ${OBJECTDIR}/src/button.d ${OBJECTDIR}/src/button.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/button.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/i2c_master.p1: src/i2c_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/src/config_bits.p1: src/config_bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/i2c_master.p1.d 
-	@${RM} ${OBJECTDIR}/src/i2c_master.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/i2c_master.p1 src/i2c_master.c 
-	@-${MV} ${OBJECTDIR}/src/i2c_master.d ${OBJECTDIR}/src/i2c_master.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/i2c_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/src/config_bits.p1.d 
+	@${RM} ${OBJECTDIR}/src/config_bits.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/config_bits.p1 src/config_bits.c 
+	@-${MV} ${OBJECTDIR}/src/config_bits.d ${OBJECTDIR}/src/config_bits.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/config_bits.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/pic_max30102.p1: src/pic_max30102.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/src/i2c.p1: src/i2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/pic_max30102.p1.d 
-	@${RM} ${OBJECTDIR}/src/pic_max30102.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/pic_max30102.p1 src/pic_max30102.c 
-	@-${MV} ${OBJECTDIR}/src/pic_max30102.d ${OBJECTDIR}/src/pic_max30102.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/pic_max30102.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/src/i2c.p1.d 
+	@${RM} ${OBJECTDIR}/src/i2c.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/i2c.p1 src/i2c.c 
+	@-${MV} ${OBJECTDIR}/src/i2c.d ${OBJECTDIR}/src/i2c.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/src/max30102.p1: src/max30102.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/max30102.p1.d 
+	@${RM} ${OBJECTDIR}/src/max30102.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"C:/Program Files/Microchip/xc8/v3.00/pic/include" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/c99" -I"C:/Program Files/Microchip/xc8/v3.00/pic/include/proc" -I"./include" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/max30102.p1 src/max30102.c 
+	@-${MV} ${OBJECTDIR}/src/max30102.d ${OBJECTDIR}/src/max30102.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/max30102.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

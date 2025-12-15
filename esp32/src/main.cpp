@@ -20,6 +20,9 @@ String data_str;
 long alcohol;
 long ir;
 
+/**
+ * @brief HTTP request's hanlder
+ */
 void sendData(){
     StaticJsonDocument<300> JSONData;
     // Use the object just like a javascript object or a python dictionary  
@@ -73,10 +76,10 @@ void loop() {
      */
     char ch = Serial.read();
     if(ch == ',') {
-      alcohol = data_str.toInt();
+      ir = data_str.toInt();
       data_str = "";
     } else if(ch == '\n') {
-      ir = data_str.toInt();
+      alcohol = data_str.toInt();
       data_ready = true;
       data_str = "";
       break;
@@ -87,5 +90,7 @@ void loop() {
 
   if(data_ready) {
     calc_rmssd(ir);
+    Serial.printf("IR: %ld, AC: %ld, HR: %ld, HRV: %f\r\n", ir, alcohol, beatAvg, rmssd);
+    data_ready = false;
   }
 }
