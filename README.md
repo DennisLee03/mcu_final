@@ -34,13 +34,13 @@ For education/demo only — not a medical or safety device.
 
     * ADC: AN0 ← MQ-3 analog output
 
-    * UART: TX → ESP32 RX2 (level-shift to 3.3V), RX ← ESP32 TX2
+    * UART: TX → ESP32 RX0
 
-    * Common GND with ESP32 & sensors
+    * Common GND with sensors
 
 * ESP32 (Arduino core)
 
-    * UART0: RX0 TX=0 (to PC for debug)
+    * UART0: RX0, TX0 (to PC for debug)
 
     * Wi-Fi STA mode; HTTP on port 80
 
