@@ -1,4 +1,4 @@
-# Safe Driver Device
+# mcu_final
 PIC18F4520 + MAX30102 (PPG) + MQ-3 (alcohol) + ESP32 (Wi-Fi/HTTP).
 Real-time heart rate & HRV (fatigue proxy), on-demand alcohol readout, JSON over HTTP.
 For education/demo only — not a medical or safety device.
@@ -11,10 +11,11 @@ For education/demo only — not a medical or safety device.
 * Simple, hackable code; PC can also compute/plot if preferred. 
     * See [Safe_driver_monitor](https://github.com/Mason1217/Safe_driver_monitor/tree/227d2d8036bb9c5a0dbd20d4e116e7e54c521056).
 
+## System Archotecture
+![System Diagram](images/system_architecture/mcu_final.png)
 
 ## Demo
 * [Video TODO](https://www.youtube.com/watch?v=f6lDWt4uqEs&t=46s)
-* Photo
 
 ## Hardware
 ### Bill of Materials
@@ -74,7 +75,7 @@ const char* PC_IP = "ip_addr";          // @TODO: PC's IPv4
 ```
 
 ## Run & Test
-You can reboot the ESP32 devkit, to see its IP address.
+You can reboot the ESP32 devkit, to see the initial information(include its IP address).
 ```bash
 curl http://<ESP32_IP>/test
 # → {"AC":123,"HR":72,"HRV":38.5}
