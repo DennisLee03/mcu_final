@@ -1,48 +1,84 @@
-# mcu_final
+# Safe Driver Device
+PIC18F4520 + MAX30102 (PPG) + MQ-3 (alcohol) + ESP32 (Wi-Fi/HTTP).
+Real-time heart rate & HRV (fatigue proxy), on-demand alcohol readout, JSON over HTTP.
+For education/demo only — not a medical or safety device.
 
-## Overview
-* `esp32`: As a WiFi module, a connection between pic18f4520 and PC.
-* `pc`: Python scripts on PC. Interpret data and visuialize it.
-* `pic.X`: pic18f4520's code.
+## Features
+* Heart rate from PPG (MAX30102), peak detection.
+* HRV (RMSSD) on device (short-term estimate of fatigue).
+* Alcohol (MQ-3) ADC readout.
+* Wi-Fi HTTP API (ESP32) returns JSON for dashboards/logging.
+* Simple, hackable code; PC can also compute/plot if preferred. 
+    * See [Safe_driver_monitor](https://github.com/Mason1217/Safe_driver_monitor/tree/227d2d8036bb9c5a0dbd20d4e116e7e54c521056).
 
-## Hardware Components
-1. `PIC18F4520`: controller of MQ-3 and MAX30102
-2. `ESP32 DevKit V1`: WiFi module
-3. `MQ-3`: measure alcohol
-4. `MAX30102`: measure heart rate
 
-## Development Environment
-1. `MPLAB` for pic18
-2. `PlatformIO` for esp32
+## Demo
+* [Video TODO](https://www.youtube.com/watch?v=f6lDWt4uqEs&t=46s)
+* Photo
+
+## Hardware
+### Bill of Materials
+| Item           | Model            | Notes                                               |
+| -------------- | ---------------- | --------------------------------------------------- |
+| MCU            | **PIC18F4520**   | I2C master, ADC, UART to ESP32                      |
+| PPG            | **MAX30102**     | I2C slave                                           |
+| Alcohol        | **MQ-3**         | Analog out → PIC AN0                                |
+| Wi-Fi          | **ESP32 DevKit** | Web server + bridge; UART2 RX/TX                    |
+| Power          | 5V supply        | Common ground for all boards                        |
+### Pinout / Wiring
+
+* PIC18F4520
+
+    * I2C: RC3=SCL, RC4=SDA (enable SSP/I2C, 100–400 kHz)
+
+    * ADC: AN0 ← MQ-3 analog output
+
+    * UART: TX → ESP32 RX2 (level-shift to 3.3V), RX ← ESP32 TX2
+
+    * Common GND with ESP32 & sensors
+
+* ESP32 (Arduino core)
+
+    * UART0: RX0 TX=0 (to PC for debug)
+
+    * Wi-Fi STA mode; HTTP on port 80
+
+## Repository Layout
+```bash
+mcu_final/
+├─ pic.X/          # MPLAB X + XC8 project for PIC18F4520
+├─ esp32/          # PlatformIO (Arduino) project for ESP32
+├─ docs/           # Project Descriptions in detail
+└─ images/         # images to display in this repo
+```
+
+## Clone (with submodules)
+```bash
+git clone --recurse-submodules <THIS-REPO-URL>
+git submodule update --init --recursive
+```
 
 ## Reminders
-* If there is "**Target Device ID (0x0) is an Invalid Device ID. Please check your connections to the Target Device.**" when compiling:
-    1. Your breadboard is probably broken!
-    2. Check that the pic18’s pins are fully inserted.
-* In `mcu_final/esp32/src/main.cpp`, change below when in different WiFi environments. Then re-burn the program to the esp32.
-    ```
-    const char* SSID  = "dennis-laptop";   // @TODO: WiFi's name
-    const char* PASS  = "32170928";        // @TODO: WiFi's password
-    const char* PC_IP = "192.168.137.1";   // @TODO: PC's IPv4
-    ```
+### PIC → ESP32 UART format
+```
+<IR>,<AC>\n
+23456,120\n
+...
+```
+### ESP32 (PlatformIO, Arduino core)
+In src/main.cpp
+```c
+const char* SSID  = "your_ssid";        // @TODO: WiFi's name
+const char* PASS  = "your_pass";        // @TODO: WiFi's password
+const char* PC_IP = "ip_addr";          // @TODO: PC's IPv4
+```
 
-## PIC18's Config
-1. $$F_{OSC}$$ = 1 MHz
-    * It is possible that if we try to integrate I2C into our project, we may adjust our $$F_{OSC}$$.
-    * Therefore, some modules' config need changing
-        1. ADC: $$T_{AD}$$, $$T_{ACQT}$$
-        2. UART: `SYNC`, `BRG16`, `BRGH`, `SPBRGH:SPBRG`
-3. baud_rate = 1200 bps
+## Run & Test
+You can reboot the ESP32 devkit, to see its IP address.
+```bash
+curl http://<ESP32_IP>/test
+# → {"AC":123,"HR":72,"HRV":38.5}
+```
 
-## TODOs
-- [ ] process data
-    - [ ] interpret heart-rate and breath-test data
-    - [ ] how to display them
-- [ ] handle heart-rate and breath-test modes
-- [ ] power supply
-- [ ] I2C comm of MAX30102
-- [ ] Fast path: init + fetch all submodules (and nested ones)
-    ```
-    $ git submodule sync --recursive
-    $ git submodule update --init --recursive --progress
-    ```
+## Safety & Disclaimer
+This project is for coursework and prototyping. Do not rely on it to assess medical conditions or legal fitness to drive. Always follow local regulations and best practices.
