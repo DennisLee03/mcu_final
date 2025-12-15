@@ -9,9 +9,9 @@
 #include "heart_rate.h"
 
 
-const char* SSID  = "DennisPhone";        // @TODO: WiFi's name
-const char* PASS  = "dennis0928";         // @TODO: WiFi's password
-const char* PC_IP = "172.20.10.7";        // @TODO: PC's IPv4
+const char* SSID  = "your_ssid";        // @TODO: WiFi's name
+const char* PASS  = "your_pass";        // @TODO: WiFi's password
+const char* PC_IP = "ip_addr";          // @TODO: PC's IPv4
 
 WebServer server(80);
 

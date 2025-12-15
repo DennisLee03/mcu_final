@@ -41,3 +41,8 @@
 - [ ] handle heart-rate and breath-test modes
 - [ ] power supply
 - [ ] I2C comm of MAX30102
+- [ ] Fast path: init + fetch all submodules (and nested ones)
+    ```
+    $ git submodule sync --recursive
+    $ git submodule update --init --recursive --progress
+    ```
