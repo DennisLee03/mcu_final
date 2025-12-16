@@ -11,7 +11,7 @@ For education/demo only — not a medical or safety device.
 * Simple, hackable code; PC can also compute/plot if preferred. 
     * See [Safe_driver_monitor](https://github.com/Mason1217/Safe_driver_monitor/tree/227d2d8036bb9c5a0dbd20d4e116e7e54c521056).
 
-## System Archotecture
+## System Architecture
 ![System Diagram](images/system_architecture/mcu_final.png)
 
 ## Demo
