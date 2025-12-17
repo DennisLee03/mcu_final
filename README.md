@@ -15,7 +15,7 @@ For education/demo only — not a medical or safety device.
 ![System Diagram](images/system_architecture/mcu_final.png)
 
 ## Demo
-* [Video TODO](https://www.youtube.com/watch?v=f6lDWt4uqEs&t=46s)
+* [Video](https://www.youtube.com/watch?v=p8hfKhod48c)
 
 ## Hardware
 ### Bill of Materials
